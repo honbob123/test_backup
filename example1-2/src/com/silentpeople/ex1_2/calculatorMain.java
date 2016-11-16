@@ -43,6 +43,10 @@ public class calculatorMain {
 			System.out.println(sign);
 		}
 		
+		if(num[1] == 0 && sign == '/'){
+			System.out.println("0으로 나누기는 불가능 합니다. 다시 입력해주세요");
+			
+		}
 		switch(sign){
 		case '+':
 			long addresult = Long.valueOf(num[0]) + (long)num[1];
