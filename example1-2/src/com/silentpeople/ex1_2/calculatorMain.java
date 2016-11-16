@@ -9,10 +9,15 @@ public class calculatorMain {
 		
 		String inputVal = scan.nextLine();
 		
+		inputVal = inputVal.replaceAll("\\s","");
 		System.out.println(inputVal);
-		
+		String divchk = "-";
 		String [] chkvals = inputVal.split("[\\+\\-\\/\\*\\=]");
-		
+		if(inputVal.startsWith("-")){
+			chkvals[0] = divchk.concat(chkvals[1]);
+			System.out.println("concat: "+chkvals[0]);
+			chkvals[1] = chkvals[2];
+		}
 		for(int cnt=0; cnt < chkvals.length; cnt++){	// 검증코드
 			System.out.println(chkvals[cnt]);
 		}
@@ -40,18 +45,20 @@ public class calculatorMain {
 		
 		switch(sign){
 		case '+':
-			long result = Long.valueOf(num[0]) + (long)num[1];
-			System.out.println(result);
+			long addresult = Long.valueOf(num[0]) + (long)num[1];
+			System.out.println(addresult);
 			break;
 		case '-':
-			long result1 = num[0] - num[1];
-			System.out.println();
+			long subresult = (long)num[0] - Long.valueOf(num[1]);
+			System.out.println(subresult);
 			break;
 		case '*':
-			System.out.println(num[0] * num[1]);
+			long mulresult = Long.valueOf(num[0]) * Long.valueOf(num[1]);
+			System.out.println(mulresult);
 			break;
 		case '/':
-			System.out.println(num[0] / num[1]);
+			double divresult = Double.valueOf(num[0]) / Double.valueOf(num[1]);
+			System.out.println(divresult);
 			break;
 		default:
 			break;
@@ -62,3 +69,4 @@ public class calculatorMain {
 	}
 	
 }
+
